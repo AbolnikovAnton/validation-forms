@@ -28,8 +28,8 @@
                 </small>
 
                 <small *ngIf="form.get('password').errors.minlength">
-                    Password need to be longer then {{form.get('password').errors.minlength.requiredLength}}
-                    Now is {{form.get('password').errors.minlength.actualLength}}
+                    Password need to be longer then {{form.get('password').errors.minlength.requiredLength}}.
+                        Now is {{form.get('password').errors.minlength.actualLength}}
                 </small>
             </div>
         </div>

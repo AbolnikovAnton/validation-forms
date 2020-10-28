@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
             password: new FormControl(null,
                 [
                     Validators.required,
-                    Validators.minLength(6)
+                    Validators.minLength(8)
                 ])
         });
     }
