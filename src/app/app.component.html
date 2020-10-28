@@ -7,8 +7,7 @@
             <input type="text" placeholder="Email" formControlName="email">
             <div
                     class="validation"
-                    *ngIf="form.get('email').invalid && form.get('email').touched"
-            >
+                    *ngIf="form.get('email').invalid && form.get('email').touched">
                 <small *ngIf="form.get('email').errors.required">
                     E-mail can`t be empty
                 </small>
@@ -22,7 +21,17 @@
         <div class="form-control">
             <label>Пароль</label>
             <input type="password" placeholder="Пароль" formControlName="password">
-            <div class="validation"></div>
+            <div class="validation"
+                 *ngIf="form.get('password').invalid && form.get('password').touched">
+                <small *ngIf="form.get('password').errors.required">
+                    Password can`t be empty
+                </small>
+
+                <small *ngIf="form.get('password').errors.minlength">
+                    Password need to be longer then {{form.get('password').errors.minlength.requiredLength}}
+                    Now is {{form.get('password').errors.minlength.actualLength}}
+                </small>
+            </div>
         </div>
 
         <div class="card">
@@ -32,9 +41,10 @@
                 <label>Страна</label>
 
                 <select>
-                    <option value="ru">Россия</option>
-                    <option value="ua">Украина</option>
-                    <option value="by">Беларусь</option>
+                    <option value="by">Israel</option>
+                    <option value="ru">Russia</option>
+                    <option value="ua">Ukraine</option>
+                    <option value="by">Belarus</option>
                 </select>
             </div>
 
