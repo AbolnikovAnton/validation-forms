@@ -19,8 +19,12 @@ export class AppComponent implements OnInit {
                 [
                     Validators.required,
                     Validators.minLength(8)
-                ])
-        });
+                ]),
+            address: new FormGroup({
+                country: new FormControl('il'),
+                city: new FormControl('Tel-Aviv', Validators.required)
+            })
+        })
     }
 
     submit() {
@@ -29,6 +33,10 @@ export class AppComponent implements OnInit {
             const formData = {...this.form.value};
             console.log('Form Data:', formData);
         }
+    }
+
+    setCapital() {
+        
     }
 }
 

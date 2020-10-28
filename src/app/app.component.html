@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-control">
-            <label>Пароль</label>
+            <label>Password</label>
             <input type="password" placeholder="Пароль" formControlName="password">
             <div class="validation"
                  *ngIf="form.get('password').invalid && form.get('password').touched">
@@ -29,19 +29,19 @@
 
                 <small *ngIf="form.get('password').errors.minlength">
                     Password need to be longer then {{form.get('password').errors.minlength.requiredLength}}.
-                        Now is {{form.get('password').errors.minlength.actualLength}}
+                    Now is {{form.get('password').errors.minlength.actualLength}}
                 </small>
             </div>
         </div>
 
-        <div class="card">
-            <h2>Адрес</h2>
+        <div class="card" formGroupName="address">
+            <h2>Address</h2>
 
             <div class="form-control">
-                <label>Страна</label>
+                <label>Country</label>
 
-                <select>
-                    <option value="by">Israel</option>
+                <select formControlName="country">
+                    <option value="il">Israel</option>
                     <option value="ru">Russia</option>
                     <option value="ua">Ukraine</option>
                     <option value="by">Belarus</option>
@@ -49,15 +49,17 @@
             </div>
 
             <div class="form-control">
-                <input type="text">
+                <input type="text" formControlName="city" placeholder="City">
             </div>
 
-            <button class="btn" type="button">Выбрать столицу</button>
+            <button class="btn" type="button"
+                (click)="setCapital()"
+            >Choose capital</button>
         </div>
 
         <div class="card">
             <h2>Ваши навыки</h2>
-            <button class="btn" type="button">Добавить умение</button>
+            <button class="btn" type="button">Add skill</button>
             <div class="form-control">
                 <label></label>
                 <input type="text">
@@ -65,7 +67,7 @@
         </div>
 
         <button class="btn" type="submit"
-                [disabled]="form.invalid">Отправить
+                [disabled]="form.invalid">Send
         </button>
 
     </form>
