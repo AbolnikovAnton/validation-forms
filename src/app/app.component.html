@@ -5,7 +5,18 @@
         <div class="form-control">
             <label>Email</label>
             <input type="text" placeholder="Email" formControlName="email">
-            <div class="validation"></div>
+            <div
+                    class="validation"
+                    *ngIf="form.get('email').invalid && form.get('email').touched"
+            >
+                <small *ngIf="form.get('email').errors.required">
+                    E-mail can`t be empty
+                </small>
+
+                <small *ngIf="form.get('email').errors.email">
+                    Enter correct e-mail
+                </small>
+            </div>
         </div>
 
         <div class="form-control">
